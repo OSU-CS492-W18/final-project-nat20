@@ -10,6 +10,7 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.tucker.nat20.database.SpellContract;
 import com.tucker.nat20.database.SpellDBHelper;
@@ -19,6 +20,7 @@ import com.tucker.nat20.utils.SpellListUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * Created by eli on 2/13/2018.
@@ -93,11 +95,18 @@ public class SpellDetailActivity extends AppCompatActivity
             case R.id.action_save:
                 ArrayList<SpellListUtils.SpellResult> spellsInDB = getAllSavedSpellsFromDB();
                 String spellName = tvName.getText().toString();
-                if (!spellsInDB.contains(new SpellListUtils.SpellResult(spellName, url))) {
+                Boolean flag = true;
+                for (int i = 0; i < spellsInDB.size(); i++)
+                    if (spellsInDB.get(i).name.equals(spellName))
+                        flag = false;
+                if (flag) {
                     mDB.execSQL(
                             "INSERT INTO " + SpellContract.SavedSpells.TABLE_NAME + " (" +
                             SpellContract.SavedSpells.COLUMN_NAME + ", " + SpellContract.SavedSpells.COLUMN_URL +
                             ") VALUES ('" + spellName + "', '" + url + "');");
+                    Toast.makeText(this, "Spell saved.", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this, "Spell already saved.", Toast.LENGTH_SHORT).show();
                 }
                 return true;
             default:
