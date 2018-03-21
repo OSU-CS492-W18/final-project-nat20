@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">NAT20</string>
+    <string name="loading_error_message">Looks like there\'s a problem with the connection to the Divine. Check your internet and try again.</string>
+    <string name="action_save">Save Spell</string>
+    <string name="saved_spells_title">Saved Spells</string>
+    <string name="website_title">Dnd Wiki</string>
+
+    <string name="drawer_open">Open drawer</string>
+    <string name="drawer_close">Close drawer</string>
+</resources>

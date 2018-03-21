@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_saved_spells"
+        android:icon="@android:drawable/ic_menu_save"
+        android:title="@string/saved_spells_title"
+        android:orderInCategory="1"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_external_link"
+        android:icon="@android:drawable/ic_menu_help"
+        android:orderInCategory="2"
+        android:title="@string/website_title"
+        app:showAsAction="ifRoom" />
+</menu>
